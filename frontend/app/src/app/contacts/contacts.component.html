@@ -1,0 +1,107 @@
+
+<div class="inputFrame">
+    <input type="search" [(ngModel)]="searchVal" placeholder="חיפוש">
+    <button class="w3-btn w3-green w3-round" routerLink="/add-customer/new">הוספת איש קשר<i class="far fa-folder-open"></i></button>
+</div>
+
+
+
+<div class="displayMode" >
+    <label *ngFor="let mode of displayMode">
+        <button (click)="changeDisplayMode(mode.mode)" name="displaymode"> 
+            <i class="fas fa-{{ mode.icon }}"></i>
+    </button></label>
+</div>
+
+
+<div  *ngIf="getDisplayMode() == 'list'">
+
+    <table class="w3-table w3-striped w3-bordered">
+        <thead>
+            <tr>
+                <th>שם פרטי</th>
+                <th>שם משפחה</th>
+                <th>גיל</th>
+                <th>דרך התקשרות מעודפת</th>
+                <th>טלפון</th>
+                <th>איימיל</th>
+                <th>כתובת</th>
+                <th>הערות לקוח</th>
+                <th>פעיל</th>
+                <th></th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data | search : searchVal;">
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.age | age}}</td>
+                <td>{{ moclevel[item.meansOfCommunication] }}</td>
+                <td>{{ item.phone }}</td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.state }} {{ item.city }} {{ item.street }} {{ item.houseNamber }} {{ item.zipCode }}</td>
+                <td>{{ item.info }}</td>
+                <td><button class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-edit-contact', item.id]">עריכה</button></td>
+                <td><button class="w3-btn w3-red w3-round" (click)="remove(item)">מחיקה</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+</div>
+
+<div  class="frame" *ngIf="getDisplayMode() == 'columns'">
+
+    <div class="w3-container w3-third w3-padding" *ngFor="let item of data | search : searchVal;">
+    <div class="w3-card-4 w3-dark-grey " >
+
+        <div class="w3-container w3-center ">
+          <h3>{{ item.firstName }} {{ item.lastName }}</h3>
+          
+          <h5>{{ item.phone }}</h5>
+    
+          <div class="w3-section">
+            <button class="w3-button w3-green" [routerLink]="['/', 'add-customer', item.id]">עריכה</button>
+            <button class="w3-button w3-red"(click)="remove(item)">מחיקה</button>
+          </div>
+        </div>
+    </div>
+      </div>
+
+
+</div>
+
+
+
+
+<div *ngIf="getDisplayMode() == 'folders'">
+
+    <div class="card-container" *ngFor="let folder of data | search: searchVal;">
+        <button (click)="openModal(folder.id)" class="card">
+            <div>
+                <div class="card-header">{{ folder.firstName }}</div>
+                <i class="far fa-folder-open card-body"></i>
+            </div>
+        </button>
+
+        <div id="modal-{{ folder.id }}" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <span (click)="closeModal(folder.id)" class="w3-button w3-display-topleft w3-red">&times;</span>
+                <header class="w3-container w3-light-grey">
+                    <h3>{{ folder.firstName }} {{ folder.lastName }}</h3>
+                </header>
+                <p>{{ folder.age | age}}</p>
+                <p>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
+                <p>{{ folder.info }}</p>
+                <button class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-edit-contact', folder.id]">עריכה</button>
+                <button class="w3-btn w3-red w3-round" (click)="remove(folder)">מחיקה</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+

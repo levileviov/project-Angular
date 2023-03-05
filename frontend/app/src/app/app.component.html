@@ -1,0 +1,25 @@
+
+
+<div *ngIf="utility.getUser()">
+    <p class="welcome">
+    </p>
+    
+    <div id="frame">
+        <app-navbar></app-navbar>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<div *ngIf="!utility.getUser()">
+    <router-outlet></router-outlet>
+    
+    
+    
+</div>
+<footer [class.absulote]="!utility.getUser()">
+כל הזכויות שמורות(c)
+</footer>
+
+<div class="loaderFrame" *ngIf="utility.isLoader">
+    <div class="loader"></div>
+</div>

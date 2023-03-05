@@ -1,0 +1,72 @@
+<h2 *ngIf="isEditableState">עריכת לקוח</h2>
+<h2 *ngIf="!isEditableState">הוספת לקוח</h2>
+
+<form *ngIf="form" [formGroup]="form">
+  <div class="split">
+    <div class="field">
+      <label>שם פרטי:<i class="fa fa-asterisk w3-text-red"></i></label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="firstName" >
+    </div>
+    <div class="field">
+      <label>שם משפחה:<i class="fa fa-asterisk w3-text-red"></i></label>
+      <input class="w3-input w3-border w3-round" type="text" formControlName="lastName" >
+    </div>
+  </div>
+
+  <div class="split">
+    <div class="field">
+      <label>טלפון:<i class="fa fa-asterisk w3-text-red"></i></label>
+      <input class="w3-input w3-border w3-round" type="tel" formControlName="phone" >
+    </div>
+    <div class="field">
+      <label>איימיל:<i class="fa fa-asterisk w3-text-red"></i></label>
+      <input class="w3-input w3-border w3-round" type="email" formControlName="email" >
+    </div>
+  </div>
+
+  <div class="address">
+    <h3>כתובת:</h3>
+    <div class="split">
+      <div class="field">
+        <label>מדינה:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="state" >
+      </div>
+      <div class="field">
+        <label>עיר:<i class="fa fa-asterisk w3-text-red"></i></label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="city" >
+      </div>
+      <div class="field">
+        <label>רחוב:<i class="fa fa-asterisk w3-text-red"></i></label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="street" >
+      </div>
+    </div>
+    <div class="split">
+      <div class="field">
+        <label>מס בית/דירה:<i class="fa fa-asterisk w3-text-red"></i></label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="houseNamber" >
+      </div>
+      <div class="field">
+        <label>מיקוד:</label>
+        <input class="w3-input w3-border w3-round" type="text" formControlName="zipCode" >
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>דרך התקשרות מועדפת:<i class="fa fa-asterisk w3-text-red"></i> </label>
+    <select class="w3-select w3-border w3-round" formControlName="meansOfCommunication">
+        <option *ngFor="let s of statuses" [value]="s.status">{{ s.title }}</option>
+      </select>
+    </div>
+  
+    <div class="field">
+      <label>הערה:<i class="fa fa-asterisk w3-text-red"></i></label>
+      <textarea class="w3-input w3-border w3-round" formControlName="info"></textarea>
+    </div>
+
+    <button  class="w3-button w3-blue w3-round" style="margin: 3px;" (click)="clear()">שחזר <i class="fa fa-refresh"></i></button>
+    <button  class="w3-button w3-grey w3-round" style="margin: 3px;" [routerLink]="['/', 'customers']">חזור <i class="fa fa-repeat"></i></button>
+    <button *ngIf="!isEditableState" class="w3-button w3-green w3-round" style="margin: 3px;" [disabled]="!form.valid" (click)="add()">הוסף <i class="fa fa-plus"></i></button>
+    <button *ngIf="isEditableState" class="w3-button w3-green w3-round"  style="margin: 3px;" [disabled]="!form.valid" (click)="save()">שמירה <i class="fa fa-save"></i></button>
+ 
+  </form>

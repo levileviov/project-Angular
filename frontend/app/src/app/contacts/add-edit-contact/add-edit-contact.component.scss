@@ -1,0 +1,64 @@
+
+
+
+h2 {
+    text-align: center;
+  }
+  
+  form {
+    max-width: 80%;
+    padding: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #00000075;
+    margin: 30px auto;
+  }
+  
+  .field {
+    margin-bottom: 12px;
+    padding: 10px;
+    display: flex;
+    height: 100%;
+    i{
+      font-size: 6px !important;
+      position: relative;
+      top: -6px;
+    }
+  
+  }
+  
+  .field label {
+    margin-right: 8px;
+    width: 120px;
+    text-align: right;
+  }
+  
+  .split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .field input,
+  .field select,
+  .field textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .w3-input:focus,
+  .w3-select:focus,
+  .w3-textarea:focus {
+    border-color: #4CAF50;
+    outline: 0;
+  }
+  
+  .address {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+ 
