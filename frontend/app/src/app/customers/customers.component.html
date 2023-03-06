@@ -1,4 +1,6 @@
 
+
+<h2>לקוחות</h2>
 <div class="inputFrame">
     <input type="search" [(ngModel)]="searchVal" placeholder="חיפוש">
     <button class="w3-btn w3-green w3-round" routerLink="/add-customer/new">הוספת לקוח<i class="far fa-folder-open"></i></button>
@@ -14,7 +16,7 @@
 </div>
 
 
-<div  *ngIf="getDisplayMode() == 'list'">
+<div class="list" *ngIf="getDisplayMode() == 'list'">
 
     <table class="w3-table w3-striped w3-bordered">
         <thead>
@@ -90,10 +92,10 @@
                 <header class="w3-container w3-light-grey">
                     <h3>{{ folder.firstName }} {{ folder.lastName }}</h3>
                 </header>
-                <p>{{ folder.phone }} {{ folder.email }}</p>
-                <p>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
-                <p>{{ folder.info }}</p>
-                <button class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-customer', folder.id]">עריכה</button>
+                <p><b>טלפון: </b>{{ folder.phone }} <b>אימייל:</b>{{ folder.email }}</p>
+                <p><b>כתובת: </b>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
+                <p><b>הערות: </b>{{ folder.info }}</p>
+                <button style="margin: 10px 20% ;" class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-customer', folder.id]">עריכה</button>
                 <button class="w3-btn w3-red w3-round" (click)="remove(folder)">מחיקה</button>
             </div>
         </div>

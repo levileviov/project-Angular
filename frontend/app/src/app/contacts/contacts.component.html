@@ -15,7 +15,7 @@
 </div>
 
 
-<div  *ngIf="getDisplayMode() == 'list'">
+<div class="list" *ngIf="getDisplayMode() == 'list'">
 
     <table class="w3-table w3-striped w3-bordered">
         <thead>
@@ -95,7 +95,7 @@
                 </header>
                 <p><b>גיל: </b> {{ folder.age | age}}</p>
                 <p><b>כתובת: </b>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
-                <p>{{ folder.info }}</p>
+                <p><b>הערות: </b>{{ folder.info }}</p>
                 <button style="margin: 10px 20% ;" class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-edit-contact', folder.id]">עריכה</button>
                 <button class="w3-btn w3-red w3-round" (click)="remove(folder)">מחיקה</button>
             </div>

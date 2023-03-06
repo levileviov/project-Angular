@@ -1,3 +1,7 @@
+
+h2{
+  text-align: center;
+}
 .displayMode {
     padding: 16px;
 
@@ -27,6 +31,9 @@
     }
 }
 
+.list {
+  overflow: scroll;
+}
 
 .frame {
   float: left;
@@ -82,5 +89,7 @@ th , td {
   .card:hover {
     transform: translateY(-5px);
   }
-
+  .w3-modal p {
+    padding: 10px;
+  }
 
