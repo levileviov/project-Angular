@@ -20,8 +20,13 @@ export class AddEditContactComponent {
     form?: FormGroup;
     isEditableState?: boolean;
   
-
-    moclevel = moclevel;
+    statuses = [
+        {status: meansOfCommunication.email, title: 'איימיל'},
+        {status: meansOfCommunication.phone, title: 'טלפון'},
+        {status: meansOfCommunication.sms, title: 'סמס'},
+        {status: meansOfCommunication.post, title: 'דואר'},
+      ];
+   
    
     buildForm(item?: Contact){
        this.form = new FormGroup({
@@ -37,8 +42,7 @@ export class AddEditContactComponent {
             ]),
             age: new FormControl(item?.age, [
                 Validators.required,
-                
-               
+           
             ]),
             meansOfCommunication: new FormControl(item?.meansOfCommunication, [
                 Validators.required,

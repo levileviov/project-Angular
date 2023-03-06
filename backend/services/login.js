@@ -1,6 +1,6 @@
 import { con } from "../sqlConnect";
 
-// פונקציה לקבלת סטטוס החיבור של היוזר
+
 
 export function getLoginStatus(req, res) {
     if (req.session.user) {
@@ -15,7 +15,6 @@ export function getLoginStatus(req, res) {
     }}
 
     export function  logout(req, res) {
-    // בהתנתקות אנחנו פשוט מוחקים את המשתנה של היוזר מהסשיין
     delete req.session.user;
     res.send();
 }

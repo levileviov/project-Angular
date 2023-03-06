@@ -1,7 +1,8 @@
+<h2>אנשי קשר</h2>
 
 <div class="inputFrame">
     <input type="search" [(ngModel)]="searchVal" placeholder="חיפוש">
-    <button class="w3-btn w3-green w3-round" routerLink="/add-customer/new">הוספת איש קשר<i class="far fa-folder-open"></i></button>
+    <button class="w3-btn w3-green w3-round" routerLink="/add-edit-contact/new">הוספת איש קשר<i class="far fa-folder-open"></i></button>
 </div>
 
 
@@ -92,10 +93,10 @@
                 <header class="w3-container w3-light-grey">
                     <h3>{{ folder.firstName }} {{ folder.lastName }}</h3>
                 </header>
-                <p>{{ folder.age | age}}</p>
-                <p>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
+                <p><b>גיל: </b> {{ folder.age | age}}</p>
+                <p><b>כתובת: </b>{{ folder.state }} {{ folder.city }} {{ folder.street }} {{ folder.houseNamber }} {{ folder.zipCode }}</p>
                 <p>{{ folder.info }}</p>
-                <button class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-edit-contact', folder.id]">עריכה</button>
+                <button style="margin: 10px 20% ;" class="w3-btn w3-green w3-round" [routerLink]="['/', 'add-edit-contact', folder.id]">עריכה</button>
                 <button class="w3-btn w3-red w3-round" (click)="remove(folder)">מחיקה</button>
             </div>
         </div>

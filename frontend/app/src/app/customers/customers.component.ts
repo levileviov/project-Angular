@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { HttpService } from '../http.service';
-import { Customers, meansOfCommunication} from './customers.interface';
+import { Customers, meansOfCommunication, moclevel} from './customers.interface';
 
 
 @Component({
@@ -13,14 +13,15 @@ import { Customers, meansOfCommunication} from './customers.interface';
 })
 export class CustomersComponent implements OnInit {
 
-    // הכנסנו את זה למשנה בתוך הקלאס ע"מ שנוכל להשתמש בו ב-HTML
-    // לא חובה להשתמש באותו שם - אך ככה מקובל
-
     openModel: boolean = false;
 
     searchVal: string = '';
 
     newTask?: string;
+
+    meansOfCommunication = meansOfCommunication;
+
+    moclevel: { [key: number]: string } = moclevel.reduce((obj, x) => { return { ...obj, [x.stasus]: x.title } }, {});
    
     displayMode = [
     {mode: 'columns' , icon:'columns'},
@@ -71,21 +72,15 @@ getDisplayMode() {
 
     ngOnInit() {
 
-if(localStorage["displayMode"] == undefined) {
- localStorage["displayMode"] = "list";
-}
-
-
-
-const sub = this.http.get<Customers[]>('customers').subscribe(data => {
-
- this.data = data;
-
-
-  sub.unsubscribe();
-})
+      if(localStorage["displayMode"] == undefined) {
+       localStorage["displayMode"] = "list";
+      }
+      
+      const sub = this.http.get<Customers[]>('customers').subscribe(data => {
+      this.data = data;
+    
+        sub.unsubscribe();
+      })
 
     }
-
-
 }

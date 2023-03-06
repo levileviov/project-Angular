@@ -23,4 +23,9 @@ export enum meansOfCommunication {
 }
 
 
-
+export const moclevel = [
+    {stasus: meansOfCommunication.email, title: 'אימייל'},
+    {stasus: meansOfCommunication.phone, title: 'פלאפון'},
+    {stasus: meansOfCommunication.post, title: 'דואר'},
+    {stasus: meansOfCommunication.sms, title: 'סמס'},
+]

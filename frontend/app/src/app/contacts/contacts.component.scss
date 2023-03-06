@@ -1,3 +1,7 @@
+h2{
+  text-align: center;
+}
+
 .displayMode {
   padding: 16px;
 
@@ -28,9 +32,7 @@
 }
 
 
-.frame {
-float: left;
-}
+
 
 
 .w3-table {
@@ -82,5 +84,7 @@ th , td {
 .card:hover {
   transform: translateY(-5px);
 }
-
+.w3-modal p {
+  padding: 10px;
+}
 

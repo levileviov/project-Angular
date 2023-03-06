@@ -11,7 +11,7 @@ import { Contact, meansOfCommunication, moclevel } from './contacs.interface';
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
-export class ContactsComponent {
+export class ContactsComponent implements OnInit{
 
 
   // הכנסנו את זה למשנה בתוך הקלאס ע"מ שנוכל להשתמש בו ב-HTML
@@ -24,6 +24,7 @@ export class ContactsComponent {
   newTask?: string;
 
   meansOfCommunication = meansOfCommunication;
+  
   moclevel: { [key: number]: string } = moclevel.reduce((obj, x) => { return { ...obj, [x.stasus]: x.title } }, {});
 
   displayMode = [
@@ -32,8 +33,7 @@ export class ContactsComponent {
     { mode: 'folders', icon: 'folder' },
   ];
 
-
-
+ 
   data: Contact[] = [];
 
   openModal(folderId: number): void {
@@ -83,12 +83,8 @@ export class ContactsComponent {
       localStorage["displayMode"] = "list";
     }
 
-
-
     const sub = this.http.get<Contact[]>('contacts').subscribe(data => {
-
       this.data = data;
-
 
       sub.unsubscribe();
     })
