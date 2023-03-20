@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
     menu: Nav[] = [
         //{ route: '/', title: 'בית', icon: 'home' },
-        { route: '/customers', title: 'לקוחות', icon: 'user-alt' },
+        { route: '/customers', title: 'לקוחות', icon: 'user' },
         { route: '/contacts', title: 'אנשי קשר', icon: 'list-alt' },
         { route: '/tasks', title: 'משימות', icon: 'tasks' },
         { route: '/about', title: 'אודות', icon: 'info' },

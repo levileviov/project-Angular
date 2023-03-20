@@ -21,7 +21,7 @@ let connection = {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'full-stack-w020222er',
+    database: 'angular-project',
 };
 
 if (process.env.NODE_ENV !== 'development') {
