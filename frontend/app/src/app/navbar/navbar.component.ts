@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
     sidebar: Nav[] = [
         ...this.menu,
         { route: '/market/products/manage', title: 'ניהול מוצרים', icon: 'edit' },
-        { route: '/market/products', title: 'חנות', icon: 'store' },
+        { route: '/market/products', title: 'חנות', icon: 'home' },
         { route: '/market/cart', title: 'עגלת קניות', icon: 'shopping-cart', counter: 'cartAmount' },
         // { route: '/market/vegetables', title: 'ירקות', icon: 'carrot' },
         // { route: '/market/fruits', title: 'פירות', icon: 'apple-alt' },
