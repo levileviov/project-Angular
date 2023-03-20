@@ -6,16 +6,16 @@
     </div>
 
     <a *ngFor="let item of menu" [routerLink]="item.route" [class.navActive]="active == item.route">
-        <i class="fas fa-{{ item.icon }}"></i> {{ item.title }}
+        <i class="fa fa-{{ item.icon }}"></i> {{ item.title }}
     </a>
     <div class="nav-left"> {{ utility.getUser()?.fullName }} ברוך הבא!
-    <button class="w3-btn w3-white w3-round" (click)="logout()"><i class="fas fa-sign-out-alt"></i> התנתק</button>
+    <button class="w3-btn w3-white w3-round" (click)="logout()"><i class="fa fa-sign-out-alt"></i> התנתק</button>
 </div>
 </nav>
 
 <nav class="sidebar" [class.open]="isOpen">
     <a *ngFor="let item of sidebar" [routerLink]="item.route" [class.navActive]="active == item.route">
-        <i class="fas fa-{{ item.icon }}"></i> {{ item.title }} <span *ngIf="item.counter"> ({{ utility[item.counter] }})</span>
+        <i class="fa fa-{{ item.icon }}"></i> {{ item.title }} <span *ngIf="item.counter"> ({{ utility[item.counter] }})</span>
     </a>
 </nav>
 

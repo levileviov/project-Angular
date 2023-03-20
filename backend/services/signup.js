@@ -1,6 +1,6 @@
-import { con } from "../sqlConnect";
+const con = require('../sqlConnect').con;
 
-export function  signup(req, res) {
+exports.signup = function(req, res) {
 
     con.query("SELECT * FROM `users` WHERE `email`=?", [req.body.email], (err, result) => {
         if (err) {
