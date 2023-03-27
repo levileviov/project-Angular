@@ -1,8 +1,9 @@
 <div class="inputFrame">
     <input type="text" [(ngModel)]="newTask" (keyup.enter)="addTask()" placeholder="משימה חדשה" [class.duplicate]="isDuplicate()">
+    <input type="search" [(ngModel)]="searchVal" placeholder="חיפוש">
+    <button class="w3-btn w3-green w3-round" (click)="addTask()">הוסף <i class="fa fa-plus"></i></button>
     <button class="w3-btn w3-blue w3-round" routerLink="/tasks-recycle-bin">סל מחזור <i class="fa fa-trash"></i></button>
 </div>
-
 
 <div class="frame">
     <div *ngFor="let s of sections">
@@ -10,7 +11,7 @@
 
         <div class="column" (dragover)="dragover(s)" [class.drag]="s.isDrag">
             <div class="cards" [style.background-color]="s.color">
-                <div *ngFor="let item of s.cards" class="card" (dragend)="dragend(s, item)" draggable="true" [style.border-color]="urlevels[item.level].color" (dblclick)="navigateTask(item)" [attr.title]="item.remark">
+                <div *ngFor="let item of s.cards  | search : searchVal;" class="card" (dragend)="dragend(s, item)" draggable="true" [style.border-color]="urlevels[item.level].color" (dblclick)="navigateTask(item)" [attr.title]="item.remark">
                     <i class="fa fa-remove" (click)="remove(s, item)"></i>
                     <p>{{ item.task }}</p>
 

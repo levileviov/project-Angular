@@ -14,7 +14,7 @@ export class TasksComponent implements OnInit {
     TaskStatuses = TaskStatuses;
     newTask?: string;
     urlevels = urlevels;
-    
+    searchVal: string = '';
 
     sections: Structure[] = [
         {

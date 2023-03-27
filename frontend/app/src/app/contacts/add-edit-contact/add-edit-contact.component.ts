@@ -49,7 +49,7 @@ export class AddEditContactComponent {
             ]),
             phone: new FormControl(item?.phone, [
                 Validators.required,
-                Validators.minLength(9),
+                Validators.minLength(8),
                 Validators.maxLength(15),
             ]),
             email: new FormControl(item?.email, [

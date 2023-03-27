@@ -61,12 +61,12 @@ export class ContactsComponent implements OnInit{
   }
 
   changeDisplayMode(mode: string) {
-    localStorage["displayMode"] = mode;
+    localStorage["displayModeContact"] = mode;
 
   }
 
   getDisplayMode() {
-    return localStorage["displayMode"];
+    return localStorage["displayModeContact"];
   }
 
 
@@ -79,8 +79,8 @@ export class ContactsComponent implements OnInit{
 
     // moclevel.forEach(x => this.moclevel[x.stasus] = x.title);
 
-    if (localStorage["displayMode"] == undefined) {
-      localStorage["displayMode"] = "list";
+    if (localStorage["displayModeContact"] == undefined) {
+      localStorage["displayModeContact"] = "list";
     }
 
     const sub = this.http.get<Contact[]>('contacts').subscribe(data => {
