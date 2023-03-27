@@ -9,4 +9,4 @@ this project can create tasks, contacts, customers and a small shop website.
 
 I hope you enjoy :)
 
-Please visit the site https://app.leviov.site
+Please visit the site https://leviov.site
