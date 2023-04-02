@@ -27,7 +27,7 @@ export class AppComponent {
     }
 
     constructor(public utility: UtilityService, private http: HttpService, private router: Router, private datePipe: DatePipe) {
-        console.log(this.datePipe.transform(new Date(), "yyyy-MM-dd"));
+      //  console.log(this.datePipe.transform(new Date(), "yyyy-MM-dd"));
     }
 
     ngOnInit() {
