@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -40,7 +41,7 @@ export class AddEditContactComponent {
                 Validators.minLength(2),
                 Validators.maxLength(15),
             ]),
-            age: new FormControl(item?.age, [
+            age: new FormControl(this.datePipe.transform(item?.age, 'yyyy-MM-dd'), [
                 Validators.required,
            
             ]),
@@ -117,7 +118,7 @@ export class AddEditContactComponent {
 
     }
 
-  constructor(private router: Router, private route: ActivatedRoute, private http: HttpService) {
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpService, private datePipe: DatePipe) {
     this.sub = this.route.params.subscribe(params => {
         const id = params['id'];
 
